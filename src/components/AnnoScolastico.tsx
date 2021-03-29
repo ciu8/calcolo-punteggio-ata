@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { AnnoScolastico, Contratto } from '../class';
-import Moment from 'react-moment';
 import moment from 'moment';
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import it from "date-fns/locale/it";
-import { useSetRecoilState, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { globalTotalPoints } from '../recoil/atom';
 registerLocale("it", it);
 
@@ -64,7 +63,7 @@ export default function AnnoScolasticoComponent(props:any) {
 
     useEffect(() => {
         setContratti(annoScolastico.contratti);
-    }, [props.contratti])
+    }, [props.contratti, annoScolastico.contratti])
 
     return (
         <>

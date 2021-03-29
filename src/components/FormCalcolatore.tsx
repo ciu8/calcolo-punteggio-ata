@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Contratto, AnnoScolastico } from '../class';
+import React, { useState } from 'react';
+import { AnnoScolastico } from '../class';
 import AnnoScolasticoComponent from './AnnoScolastico';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { globalTotalPoints } from '../recoil/atom';
 
 export default function FormCalcolatore() {
 
-    const [points, setPoints] = useRecoilState(globalTotalPoints);
+    const points = useRecoilValue(globalTotalPoints);
 
     const [anni, setAnni] = useState<AnnoScolastico[]>([]);
     const [idAnno, setIdAnno] = useState<number>(0);
